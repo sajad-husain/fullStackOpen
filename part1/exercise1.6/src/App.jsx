@@ -8,7 +8,7 @@ const Statistics = ({ text, value }) => {
         <tbody>
           <tr>
             <td>{text}</td>
-            <td>{value}</td>
+            <td>{value ? value : ""}</td>
           </tr>
         </tbody>
       </table>
