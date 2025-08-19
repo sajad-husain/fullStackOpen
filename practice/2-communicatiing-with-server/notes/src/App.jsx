@@ -1,8 +1,8 @@
 import React from 'react'
 
-const App = () => {
+const App = ({ notes }) => {
   return (
-    <div>Notes App</div>
+    <div>{notes.map(note => <li>{note.content}</li>)}</div>
   )
 }
 
