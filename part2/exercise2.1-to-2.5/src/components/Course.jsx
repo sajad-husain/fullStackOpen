@@ -6,7 +6,7 @@ const Course = ({ course }) => {
     return (
         <div>
             <Header course={course} />
-            <Content key={course.id} course={course} />
+            <Content course={course} />
         </div>
     )
 }
