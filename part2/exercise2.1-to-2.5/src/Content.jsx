@@ -2,7 +2,6 @@ import React from 'react'
 import Part from './Part'
 
 const Content = ({ courses }) => {
-    console.log(courses);
     return (
         <div>
             {courses.map(course => {
