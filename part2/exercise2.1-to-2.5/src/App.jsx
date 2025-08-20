@@ -23,6 +23,7 @@ const App = () => {
       }
     ]
   }
+  console.log("app working");
 
   return (
     <div>
