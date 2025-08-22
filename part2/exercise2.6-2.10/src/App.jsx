@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Person from './Person'
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -9,6 +10,8 @@ const App = () => {
   const formHandler = () => {
 
   }
+
+
 
 
   return (
@@ -25,7 +28,7 @@ const App = () => {
       </form>
       <h2>Number</h2>
       <p>debug: {newName}</p>
-      <p>Name: {persons.name}</p>
+      {persons.map(person => <Person key={Math.random() * person.length} name={person.name} />)}
     </div>
   )
 }
