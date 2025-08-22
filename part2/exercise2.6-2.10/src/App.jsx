@@ -3,13 +3,17 @@ import Person from './Person'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: 'Arto Hellas' },
   ])
   const [newName, setNewName] = useState('')
 
-  const formHandler = () => {
-
+  const formHandler = (event) => {
+    event.preventDefault()
+    const newPerson = [...persons, { name: newName }]
+    setPersons(newPerson)
+    setNewName('')
   }
+
 
 
 
@@ -28,7 +32,7 @@ const App = () => {
       </form>
       <h2>Number</h2>
       <p>debug: {newName}</p>
-      {persons.map(person => <Person key={Math.random() * person.length} name={person.name} />)}
+      {persons.map((person, index) => <Person key={index} name={person.name} />)}
     </div>
   )
 }

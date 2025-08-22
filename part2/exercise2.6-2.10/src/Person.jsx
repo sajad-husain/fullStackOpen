@@ -1,8 +1,11 @@
 import React from 'react'
 
 const Person = ({ name }) => {
+
     return (
-        <div>{name}</div>
+        <div>
+            <p>{name}</p>
+        </div>
     )
 }
 
