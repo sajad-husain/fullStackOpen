@@ -16,7 +16,7 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit={formHandler}>
         <div>
-          name: <input />
+          name: <input onChange={(event) => setNewName(event.target.value)} value={newName} />
         </div>
 
         <div>
