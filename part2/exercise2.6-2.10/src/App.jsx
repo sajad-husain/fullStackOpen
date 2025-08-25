@@ -12,7 +12,6 @@ const App = () => {
     const nameNumber = {
       id: String(persons.length + 1),
       name: newName,
-
     }
     setPersons([...persons, nameNumber])
     console.log(persons);
@@ -30,6 +29,8 @@ const App = () => {
         <div>
           Name: <input onChange={(event) => setNewName(event.target.value)} value={newName} />
           <br />
+          Number: <input onChange={(event) => setNewNumber(event.target.value)} value={newNumber} />
+
         </div>
         <div>
           <button type='submit'>add</button>
