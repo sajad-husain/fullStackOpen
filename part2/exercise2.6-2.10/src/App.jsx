@@ -6,14 +6,13 @@ const App = () => {
     { id: 1, name: 'Arto Hellas' }
   ])
   const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState('')
 
   const addNameHandler = (event) => {
     event.preventDefault()
     const nameNumber = {
       id: String(persons.length + 1),
       name: newName,
-      number: newNumber
+
     }
     setPersons([...persons, nameNumber])
     console.log(persons);
@@ -31,7 +30,6 @@ const App = () => {
         <div>
           Name: <input onChange={(event) => setNewName(event.target.value)} value={newName} />
           <br />
-          Number: <input onChange={(event) => setNewNumber(event.target.value)} value={newNumber} />
         </div>
         <div>
           <button type='submit'>add</button>
