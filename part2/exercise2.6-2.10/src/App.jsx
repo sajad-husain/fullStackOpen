@@ -19,7 +19,7 @@ const App = () => {
     console.log(persons);
 
     const matchedUser = persons.find(user => user.name === newName)
-    matchedUser ? alert("User Already Exists") : ''
+    matchedUser ? alert(`${newName} already exists...`) : ''
 
   }
 
