@@ -6,12 +6,15 @@ const App = () => {
     { id: 1, name: 'Arto Hellas' }
   ])
   const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+
 
   const addNameHandler = (event) => {
     event.preventDefault()
     const nameNumber = {
       id: String(persons.length + 1),
       name: newName,
+
     }
     setPersons([...persons, nameNumber])
     console.log(persons);
