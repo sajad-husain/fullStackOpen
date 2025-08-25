@@ -14,7 +14,7 @@ const App = () => {
     const nameNumber = {
       id: String(persons.length + 1),
       name: newName,
-
+      number: newNumber
     }
     setPersons([...persons, nameNumber])
     console.log(persons);
