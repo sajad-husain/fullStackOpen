@@ -1,40 +1,43 @@
 import React, { useState } from 'react'
-import Person from './Person'
+import Details from './Details'
 
 const App = () => {
+  const [persons, setPersons] = useState([
+    { id: 1, name: 'Arto Hellas' }
+  ])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', no: '0347-6858-099', id: String(newName.length + 1) }])
 
-  const formHandler = (event) => {
+  const addNameHandler = (event) => {
     event.preventDefault()
-    const newPerson = [...persons, { name: newName, no: newNumber, id: String(persons.length + 1) }]
-    setPersons(newPerson)
-    setNewName('')
+    const nameNumber = {
+      id: String(persons.length + 1),
+      name: newName,
+      number: newNumber
+    }
+    setPersons([...persons, nameNumber])
+    console.log(persons);
+
+
+
   }
-
-
-
 
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={formHandler}>
+      <form onSubmit={addNameHandler}>
         <div>
-          name: <input onChange={(event) => setNewName(event.target.value)} value={newName} />
+          Name: <input onChange={(event) => setNewName(event.target.value)} value={newName} />
           <br />
-          Phone No: <input onChange={(event) => setNewNumber(event.target.value)} value={newNumber} />
+          Number: <input onChange={(event) => setNewNumber(event.target.value)} value={newNumber} />
         </div>
-
         <div>
           <button type='submit'>add</button>
         </div>
       </form>
-      <h2>Number</h2>
-      <p>debug: {newName}</p>
-      {persons.map((person, index) => <Person key={person.id} number={person.no} name={person.name} />)}
+      <h2>Numbers</h2>
+      {persons.map(person => <Details key={person.id} name={person.name} number={person.number} />)}
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Person = ({ name, number }) => {
-
+const Details = ({ name, number }) => {
     return (
         <div>
             <p>{name} {number}</p>
@@ -9,4 +8,4 @@ const Person = ({ name, number }) => {
     )
 }
 
-export default Person
+export default Details
