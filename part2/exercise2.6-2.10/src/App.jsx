@@ -50,7 +50,9 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {personFilter.length === 0 ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} />) : personFilter.map(item => <p>{item.name}</p>)}
+      {personFilter.length === 0
+        ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} />)
+        : personFilter.map(item => <p key={item.id}>{item.name}</p>)}
     </div>
   )
 }
