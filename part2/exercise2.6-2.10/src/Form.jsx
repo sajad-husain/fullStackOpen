@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Form = ({ persons }) => {
+const Form = ({ persons, setPersons }) => {
     const [newName, setNewName] = useState('')
     const [newNumber, setNewNumber] = useState('')
 
@@ -12,12 +12,13 @@ const Form = ({ persons }) => {
             number: newNumber
         }
         setPersons([...persons, nameNumber])
-        console.log(persons);
+        console.log("added a person", persons);
 
         const matchedUser = persons.find(user => user.name === newName)
         matchedUser ? alert(`${newName} already exists...`) : ''
 
     }
+
     return (
         <div>
             <h2>add a new</h2>
