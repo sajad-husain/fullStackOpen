@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      { }
+      {persons.map(item => <p key={item.id}>{item.name} {item.number}</p>)}
     </div>
   )
 }
