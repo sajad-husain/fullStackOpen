@@ -1,25 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
+import Details from './Details'
+import Form from './Form'
+import FIlter from './FIlter'
 
 const App = () => {
-  const [persons, setPersons] = useState([])
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas', number: '040-123456', id: 1 },
+    { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
+    { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
+    { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }
+  ])
+
+  const [input, setInput] = useState('')
 
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/persons')
-      .then(response => {
-        console.log(response.data)
-        setPersons(response.data)
-      }
-      )
-  }, [])
 
-
+  const personFilter = persons.filter(item => item.name.toLowerCase().includes(input))
+  console.log('filtered persons', personFilter);
 
   return (
     <div>
-      <h1>Phonebook</h1>
-      {persons.map(item => <p key={item.id}>{item.name} {item.number}</p>)}
+      <h2>Phonebook</h2>
+      < FIlter input={input} setInput={setInput} />
+      <Form persons={persons} setPersons={setPersons} />
+      <h2>Numbers</h2>
+      {
+        personFilter.length === 0
+          ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} />)
+          : personFilter.map(person => < Details key={person.id} name={person.name} number={person.number} />)
+      }
     </div>
   )
 }
