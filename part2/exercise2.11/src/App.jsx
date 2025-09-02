@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Details from './Details'
 import Form from './Form'
 import FIlter from './FIlter'
-import axios from 'axios'
 import getDataFromServer from './services/axiosCrud'
 
 
@@ -23,7 +22,7 @@ const App = () => {
   console.log(typeof persons,);
 
   const personFilter = persons.filter(item => item.name && item.name === 'stirng' && item.name.toLowerCase().includes(input.toLowerCase()))
-  console.log('filtered persons and its typ is ', typeof personFilter, personFilter);
+  console.log('filtered persons and its type is ', typeof personFilter, personFilter);
 
   return (
     <div>
@@ -31,10 +30,11 @@ const App = () => {
       < FIlter input={input} setInput={setInput} />
       <Form persons={persons} setPersons={setPersons} />
       <h2>Numbers</h2>
+
       {
         personFilter.length === 0
-          ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} />)
-          : personFilter.map(person => < Details key={person.id} name={person.name} number={person.number} />)
+          ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} person={person} />)
+          : personFilter.map(person => < Details key={person.id} name={person.name} number={person.number} person={person} />)
       }
     </div>
   )
