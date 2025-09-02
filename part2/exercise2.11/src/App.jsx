@@ -11,6 +11,7 @@ const App = () => {
 
   const [input, setInput] = useState('')
 
+
   useEffect(() => {
     getDataFromServer
       .getPersonsData()
@@ -19,10 +20,10 @@ const App = () => {
 
   }, [])
 
-  console.log(typeof persons);
+  console.log(typeof persons,);
 
-  const personFilter = persons.filter(item => item.name.toLowerCase().includes(input))
-  console.log('filtered persons', personFilter);
+  const personFilter = persons.filter(item => item.name && item.name === 'stirng' && item.name.toLowerCase().includes(input.toLowerCase()))
+  console.log('filtered persons and its typ is ', typeof personFilter, personFilter);
 
   return (
     <div>
