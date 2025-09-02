@@ -13,9 +13,10 @@ const Form = ({ persons, setPersons }) => {
             number: newNumber
         }
 
-        getData.createNewPersons(nameNumber)
+        const changedData = [...persons, nameNumber]
+        getData.createNewPersons(changedData)
             .then(data => {
-                setPersons(nameNumber)
+                setPersons(changedData)
             })
 
         // setPersons([...persons, nameNumber])

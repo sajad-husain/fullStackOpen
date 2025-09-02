@@ -19,6 +19,8 @@ const App = () => {
 
   }, [])
 
+  console.log(typeof persons);
+
   const personFilter = persons.filter(item => item.name.toLowerCase().includes(input))
   console.log('filtered persons', personFilter);
 
