@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Details from './Details'
 import Form from './Form'
 import FIlter from './FIlter'
+import axios from 'axios'
+
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -13,7 +15,7 @@ const App = () => {
 
   const [input, setInput] = useState('')
 
-
+  axios.get('http://localhost:3001/persons',)
 
   const personFilter = persons.filter(item => item.name.toLowerCase().includes(input))
   console.log('filtered persons', personFilter);

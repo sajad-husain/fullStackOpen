@@ -12,6 +12,8 @@ const Form = ({ persons, setPersons }) => {
             number: newNumber
         }
         setPersons([...persons, nameNumber])
+        setNewName('')
+        setNewNumber('')
         console.log("added a person", persons);
 
         const matchedUser = persons.find(user => user.name === newName)
