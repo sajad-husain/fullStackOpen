@@ -26,11 +26,11 @@ const App = () => {
 
     getDataFromServer
       .removePerson(id)
-      .then(res => setPersons(prePersons => prePersons.filter(item => item.id !== id)))
+      .then(res => setPersons(persons => persons.filter(item => item.id !== id)))
       .catch(err => console.error('Delete Request Failed', err))
   }
 
-  const personFilter = persons.filter(item => item.name && item.name === 'string' && item.name.toLowerCase().includes(input.toLowerCase()))
+  const personFilter = persons.filter(item => item.name && item.name.toLowerCase().includes(input.toLowerCase()))
   console.log('filtered persons and its type is ', typeof personFilter, personFilter);
 
   return (
