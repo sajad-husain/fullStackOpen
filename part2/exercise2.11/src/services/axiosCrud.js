@@ -8,5 +8,10 @@ const getPersonsData = () => {
     return request.then(response => response.data)
 }
 
+const createNewPersons = (newObj) => {
+    const request = axios.post(url, newObj)
+    return request.then(response => response.data)
+}
 
-export default { getPersonsData }
+
+export default { getPersonsData, createNewPersons }

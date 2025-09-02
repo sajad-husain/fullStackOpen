@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import getData from './services/axiosCrud'
 
 const Form = ({ persons, setPersons }) => {
     const [newName, setNewName] = useState('')
@@ -11,9 +12,15 @@ const Form = ({ persons, setPersons }) => {
             name: newName,
             number: newNumber
         }
-        setPersons([...persons, nameNumber])
-        setNewName('')
-        setNewNumber('')
+
+        getData.createNewPersons(nameNumber)
+            .then(data => {
+                setPersons(nameNumber)
+            })
+
+        // setPersons([...persons, nameNumber])
+        // setNewName('')
+        // setNewNumber('')
         console.log("added a person", persons);
 
         const matchedUser = persons.find(user => user.name === newName)
