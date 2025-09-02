@@ -13,8 +13,8 @@ const createNewPersons = (newObj) => {
     return request.then(response => response.data)
 }
 
-const removePerson = (id, newObj) => {
-    return axios.delete(`${url}/${id}`, newObj)
+const removePerson = (id) => {
+    return axios.delete(`${url}/${id}`)
 }
 
 export default { getPersonsData, createNewPersons, removePerson }

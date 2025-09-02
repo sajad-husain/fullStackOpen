@@ -19,9 +19,18 @@ const App = () => {
 
   }, [])
 
-  console.log(typeof persons,);
+  console.log(typeof persons, 'list persons is', persons);
 
-  const personFilter = persons.filter(item => item.name && item.name === 'stirng' && item.name.toLowerCase().includes(input.toLowerCase()))
+  const deleteHandler = (id) => {
+    console.log('deleted id', id);
+
+    getDataFromServer
+      .removePerson(id)
+      .then(res => setPersons(prePersons => prePersons.filter(item => item.id !== id)))
+      .catch(err => console.error('Delete Request Failed', err))
+  }
+
+  const personFilter = persons.filter(item => item.name && item.name === 'string' && item.name.toLowerCase().includes(input.toLowerCase()))
   console.log('filtered persons and its type is ', typeof personFilter, personFilter);
 
   return (
@@ -33,8 +42,8 @@ const App = () => {
 
       {
         personFilter.length === 0
-          ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} person={person} />)
-          : personFilter.map(person => < Details key={person.id} name={person.name} number={person.number} person={person} />)
+          ? persons.map(person => <Details key={person.id} name={person.name} number={person.number} deleteHandler={() => deleteHandler(person.id)} />)
+          : personFilter.map(person => < Details key={person.id} name={person.name} number={person.number} deleteHandler={() => deleteHandler(person.id)} />)
       }
     </div>
   )

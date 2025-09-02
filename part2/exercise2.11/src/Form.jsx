@@ -13,16 +13,14 @@ const Form = ({ persons, setPersons }) => {
             number: newNumber
         }
 
-        const changedData = [...persons, nameNumber]
-        getData.createNewPersons(changedData)
+        getData.createNewPersons(nameNumber)
             .then(data => {
-                setPersons(changedData)
+                setPersons(persons.concat(data))
+                setNewName('')
+                setNewNumber('')
+
             })
 
-        // setPersons([...persons, nameNumber])
-        // setNewName('')
-        // setNewNumber('')
-        console.log("added a person", persons);
 
         const matchedUser = persons.find(user => user.name === newName)
         matchedUser ? alert(`${newName} already exists...`) : ''
