@@ -3,6 +3,7 @@ import Details from './Details'
 import Form from './Form'
 import FIlter from './FIlter'
 import axios from 'axios'
+import getDataFromServer from './services/axiosCrud'
 
 
 const App = () => {
@@ -11,8 +12,9 @@ const App = () => {
   const [input, setInput] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:3001/persons')
-      .then(response => setPersons(response.data))
+    getDataFromServer
+      .getPersonsData()
+      .then(data => setPersons(data))
     console.log('data is coming from json server');
 
   }, [])
