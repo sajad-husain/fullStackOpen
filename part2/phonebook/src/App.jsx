@@ -38,9 +38,12 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification message={errorMessage} />
+      {
+        errorMessage ?
+          <Notification message={errorMessage} /> : ''
+      }
       < FIlter input={input} setInput={setInput} />
-      <Form persons={persons} setPersons={setPersons} />
+      <Form persons={persons} setPersons={setPersons} setErrorMessage={setErrorMessage} />
       <h2>Numbers</h2>
 
       {

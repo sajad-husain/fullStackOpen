@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import getData from './services/axiosCrud'
 
-const Form = ({ persons, setPersons }) => {
+const Form = ({ persons, setPersons, setErrorMessage }) => {
     const [newName, setNewName] = useState('')
     const [newNumber, setNewNumber] = useState('')
 
@@ -19,6 +19,14 @@ const Form = ({ persons, setPersons }) => {
                 setNewName('')
                 setNewNumber('')
 
+            })
+            .then(item => {
+
+                setTimeout(() => {
+                    setErrorMessage(
+                        `${persons.name} created in Phonebook`
+                    )
+                }, 2000);
             })
 
 
