@@ -22,6 +22,7 @@ const Form = ({ persons, setPersons }) => {
             })
 
 
+
         const matchedUser = persons.find(user => user.name === newName)
         matchedUser ? alert(`${newName} already exists...`) : ''
 
