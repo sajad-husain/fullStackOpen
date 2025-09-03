@@ -24,7 +24,7 @@ const Form = ({ persons, setPersons, setErrorMessage }) => {
 
                 setTimeout(() => {
                     setErrorMessage(
-                        `${persons.name} created in Phonebook`
+                        `Name: ${newName} and numer ${newNumber} created in Phonebook`
                     )
                 }, 2000);
             })
