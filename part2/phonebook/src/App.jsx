@@ -4,7 +4,7 @@ import Form from './Form'
 import FIlter from './FIlter'
 import getDataFromServer from './services/axiosCrud'
 import Notification from './components/Notification'
-
+import './index.css'
 
 const App = () => {
   const [persons, setPersons] = useState([])
