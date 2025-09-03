@@ -3,12 +3,14 @@ import Details from './Details'
 import Form from './Form'
 import FIlter from './FIlter'
 import getDataFromServer from './services/axiosCrud'
+import Notification from './components/Notification'
 
 
 const App = () => {
   const [persons, setPersons] = useState([])
 
   const [input, setInput] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
 
   useEffect(() => {
@@ -36,6 +38,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={errorMessage} />
       < FIlter input={input} setInput={setInput} />
       <Form persons={persons} setPersons={setPersons} />
       <h2>Numbers</h2>
